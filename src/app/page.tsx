@@ -6,18 +6,22 @@ import Categories from '../components/Categories';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 import FAQ from '../components/FAQs';
+import { ThemeProvider } from 'next-themes';
+import './globals.css'; // Make sure Tailwind CSS is imported here
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Hero />
-      <FeaturedCards />
-      <Categories />
-      <Testimonials />
-      <FAQ />
-      <Footer />
-    </div>
+    <ThemeProvider attribute="class" defaultTheme="light">
+      <div className="min-h-screen">
+        <Header />
+        <Hero />
+        <FeaturedCards />
+        <Categories />
+        <Testimonials />
+        <FAQ />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 

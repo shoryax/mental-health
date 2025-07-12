@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import { Brain, Users, Shield, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Categories = () => {
 
@@ -63,7 +62,6 @@ const Categories = () => {
               </p>
               <span className="text-sm font-medium text-gray-600">
                 {category.cardCount}
-                <Link to="/pages/page.tsx">View Cards</Link>
               </span>
             </div>
           ))}
