@@ -6,12 +6,10 @@ import Categories from '../components/Categories';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
 import FAQ from '../components/FAQs';
-import { ThemeProvider } from 'next-themes';
-import './globals.css'; // Make sure Tailwind CSS is imported here
+import './globals.css';
 
-const Index = () => {
+const Airpods = () => {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light">
       <div className="min-h-screen">
         <Header />
         <Hero />
@@ -21,8 +19,7 @@ const Index = () => {
         <FAQ />
         <Footer />
       </div>
-    </ThemeProvider>
   );
 };
 
-export default Index;
+export default Airpods;

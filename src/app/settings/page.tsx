@@ -11,7 +11,7 @@ import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { useTheme } from 'next-themes';
+
 
 const Settings = () => {
   const [darkMode, setDarkMode] = useState(false);
