@@ -14,11 +14,7 @@ import { Separator } from '@/components/ui/separator';
 
 
 const Settings = () => {
-  const [darkMode, setDarkMode] = useState(false);
-  const [anonymousMode, setAnonymousMode] = useState(false);
   const [dailyReminders, setDailyReminders] = useState(true);
-  const [fontSize, setFontSize] = useState([16]);
-  const [profileVisibility, setProfileVisibility] = useState('private');
 
   const settingsSections = [
     {
@@ -27,8 +23,6 @@ const Settings = () => {
       icon: Shield,
       description: 'Manage your profile visibility and privacy settings',
       settings: [
-        { type: 'select', label: 'Profile Visibility', value: profileVisibility, options: ['public', 'private', 'friends-only'] },
-        { type: 'switch', label: 'Anonymous Mode', value: anonymousMode, onChange: setAnonymousMode },
         { type: 'switch', label: 'Allow Data Sharing for Research', value: false },
         { type: 'input', label: 'Emergency Contact', placeholder: 'Enter phone number' }
       ]
@@ -44,19 +38,6 @@ const Settings = () => {
         { type: 'switch', label: 'Crisis Resource Alerts', value: true },
         { type: 'switch', label: 'Community Activity Updates', value: false },
         { type: 'switch', label: 'Medication Reminders', value: false }
-      ]
-    },
-    {
-      id: 'accessibility',
-      title: 'Accessibility & Comfort',
-      icon: Palette,
-      description: 'Customize the app appearance for your comfort',
-      settings: [
-        { type: 'switch', label: 'Dark Mode', value: darkMode, onChange: setDarkMode },
-        { type: 'slider', label: 'Font Size', value: fontSize, onChange: setFontSize, min: 12, max: 24 },
-        { type: 'switch', label: 'High Contrast Mode', value: false },
-        { type: 'switch', label: 'Content Sensitivity Filters', value: true },
-        { type: 'switch', label: 'Reduce Motion', value: false }
       ]
     },
     {
@@ -78,9 +59,9 @@ const Settings = () => {
       description: 'Set your language and regional preferences',
       settings: [
         { type: 'select', label: 'Language', options: ['english', 'spanish', 'french', 'german', 'chinese'] },
-        { type: 'select', label: 'Timezone', options: ['utc', 'est', 'pst', 'cet', 'jst'] },
+        { type: 'select', label: 'Timezone', options: ['UTC', 'EST', 'PST', 'CET', 'JST'] },
         { type: 'switch', label: 'Show Local Resources', value: true },
-        { type: 'select', label: 'Cultural Considerations', options: ['western', 'eastern', 'multicultural'] }
+        { type: 'select', label: 'Cultural Considerations', options: ['Western', 'Eastern', 'Multicultural'] }
       ]
     },
     {
@@ -95,18 +76,6 @@ const Settings = () => {
         { type: 'button', label: 'Delete Account', action: 'delete', variant: 'destructive' }
       ]
     },
-    {
-      id: 'community',
-      title: 'Community & Support',
-      icon: Users,
-      description: 'Control your community interactions',
-      settings: [
-        { type: 'switch', label: 'Allow Friend Requests', value: true },
-        { type: 'switch', label: 'Professional Support Matching', value: false },
-        { type: 'select', label: 'Content Moderation', options: ['strict', 'moderate', 'minimal'] },
-        { type: 'button', label: 'Blocked Users', action: 'manage-blocks' }
-      ]
-    }
   ];
 
   const renderSetting = (setting: any, index: number) => {
@@ -193,13 +162,12 @@ const Settings = () => {
                 <span>Back to Home</span>
               </Link>
             </div>
-            <h1 className="text-xl font-semibold text-gray-700">Settings</h1>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
         <div className="space-y-8">
           {/* Page Header */}
           <div className="text-center">

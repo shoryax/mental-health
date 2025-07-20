@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import FAQ from '../components/FAQs';
 import './globals.css';
 
-const Airpods = () => {
+const Page = () => {
   return (
       <div className="min-h-screen">
         <Header />
@@ -22,4 +22,4 @@ const Airpods = () => {
   );
 };
 
-export default Airpods;
+export default Page;

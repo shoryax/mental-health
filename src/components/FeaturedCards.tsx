@@ -1,28 +1,32 @@
+"use client";
 import React from 'react';
 import { Smile, Sun, Leaf, Star } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const FeaturedCards = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation<HTMLElement>();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>();
   const cards = [
     {
-      icon: <Smile className="h-8 w-8 text-yellow-500" />,
+      icon: <Smile className="h-8 w-8 text-yellow-500" />, 
       title: "Daily Affirmations",
       description: "Start your day with positive thoughts and self-compassion",
       color: "from-yellow-100 to-orange-100"
     },
     {
-      icon: <Sun className="h-8 w-8 text-orange-500" />,
+      icon: <Sun className="h-8 w-8 text-orange-500" />, 
       title: "Mindfulness Moments",
       description: "Quick exercises to center yourself and find peace",
       color: "from-orange-100 to-red-100"
     },
     {
-      icon: <Leaf className="h-8 w-8 text-green-500" />,
+      icon: <Leaf className="h-8 w-8 text-green-500" />, 
       title: "Breathing Techniques",
       description: "Simple breathing exercises to reduce stress and anxiety",
       color: "from-green-100 to-teal-100"
     },
     {
-      icon: <Star className="h-8 w-8 text-purple-500" />,
+      icon: <Star className="h-8 w-8 text-purple-500" />, 
       title: "Gratitude Practice",
       description: "Cultivate appreciation and positive perspective",
       color: "from-purple-100 to-pink-100"
@@ -30,7 +34,12 @@ const FeaturedCards = () => {
   ];
 
   return (
-    <section id="cards" className="py-20 bg-white">
+    <section
+      ref={sectionRef}
+      className={`bg py-12 transition-all duration-500 ease-out ${
+        sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-4">
@@ -41,7 +50,12 @@ const FeaturedCards = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          ref={cardsRef}
+          className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-500 ease-out delay-300 ${
+            cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+          }`}
+        >
           {cards.map((card, index) => (
             <div
               key={index}

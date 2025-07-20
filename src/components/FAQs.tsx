@@ -7,8 +7,11 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const FAQ = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>();
   const faqs = [
     {
       question: "How do mental health cards work?",
@@ -43,7 +46,10 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="bg-white py-12">
+    <div
+      ref={sectionRef}
+      className={`bg py-12 transition-all duration-500 ease-out ${sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-4">

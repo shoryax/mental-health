@@ -1,9 +1,8 @@
-import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
+    <section id="home" className="py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="flex justify-center mb-6">
@@ -24,9 +23,8 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-pink-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors flex items-center justify-center space-x-2">
-
               <ArrowRight className="h-5 w-5" />
-                              <a href="#cards">Explore Cards</a>
+              <a href="#cards">Explore Cards</a>
             </button>
             <button className="border-2 border-pink-600 text-pink-600 px-8 py-3 rounded-lg font-semibold hover:bg-pink-50 transition-colors">
               Learn More

@@ -64,7 +64,7 @@ const SignInPage = () => {
           </div>
         </div>
 
-        <form onSubmit={handleEmailSignIn} className="form-container">
+        {/* <form onSubmit={handleEmailSignIn} className="form-container">
           <input
             type="email"
             placeholder="Email"
@@ -89,7 +89,7 @@ const SignInPage = () => {
           >
             Sign In
           </button>
-        </form>
+        </form> */}
       </div>
     </div>
   )

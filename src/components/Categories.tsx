@@ -1,8 +1,10 @@
 "use client";
 import React from 'react';
 import { Brain, Users, Shield, Zap } from 'lucide-react';
-
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 const Categories = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation<HTMLDivElement>();
 
   const categories = [
     {
@@ -32,7 +34,12 @@ const Categories = () => {
   ];
 
   return (
-    <div className="bg-white py-12">
+    <div
+      ref={sectionRef}
+      className={`bg py-12 transition-all duration-500 ease-out ${
+        sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-4">
@@ -43,7 +50,12 @@ const Categories = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          ref={cardsRef}
+          className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-500 ease-out delay-300 ${
+            cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+          }`}
+        >
           {categories.map((category, index) => (
             <div
               key={index}
